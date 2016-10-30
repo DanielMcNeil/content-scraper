@@ -70,6 +70,7 @@ var exportToCSV = function(object) {
     csvStream.write({Title: shirt.title, Price: shirt.price, ImageURL: shirt.image, URL: shirt.url, Time: time});
   }
   csvStream.end();
+  console.log('web crawl completed at: ' + time);
 }
 
 getShirtLinks();
