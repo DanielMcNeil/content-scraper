@@ -4,6 +4,8 @@
   "description": "content scraper for Treehouse Techdegree project",
   "main": "scraper.js",
   "dependencies": {
+    "async": "^2.1.2",
+    "fast-csv": "^2.3.0",
     "x-ray": "^2.3.1"
   },
   "devDependencies": {},
