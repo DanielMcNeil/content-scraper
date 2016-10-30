@@ -8,9 +8,11 @@
     "fast-csv": "^2.3.0",
     "x-ray": "^2.3.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jshint": "^2.9.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "jshint scraper.js || true"
   },
   "author": "Daniel McNeil",
   "license": "MIT"

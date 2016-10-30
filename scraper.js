@@ -6,7 +6,7 @@ var shirtData = [];
 var xray = Xray({
   filters:{
     slice: function (value, start , end) {
-      return typeof value === 'string' ? value.slice(start, end) : value
+      return typeof value === 'string' ? value.slice(start, end) : value;
     }
   }
 });
@@ -20,13 +20,13 @@ var getShirtLinks = function() {
       }
     }
   );
-}
+};
 
 var getShirtData = function(links) {
   async.each(links, shirtDataCall, function(err) {
     exportToCSV(shirtData);
   });
-}
+};
 
 var shirtDataCall = function(link, finished) {
   xray(link, {
@@ -39,7 +39,7 @@ var shirtDataCall = function(link, finished) {
           shirtData.push(data);
           return(finished(null));
         } else {
-          console.log("error getting t-shirt data: " + error)
+          console.log("error getting t-shirt data: " + error);
         }
       }
     );
@@ -71,6 +71,12 @@ var exportToCSV = function(object) {
   }
   csvStream.end();
   console.log('web crawl completed at: ' + time);
+  shirtData = [];
+};
+
+function scraper() {
+  getShirtLinks();
+  setTimeout(scraper, 5000);
 }
 
-getShirtLinks();
+scraper();
